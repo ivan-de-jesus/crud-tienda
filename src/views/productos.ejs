@@ -1,0 +1,78 @@
+<%- include ('partials/_header') %>
+
+
+<div class="container">
+    <div class="row ">
+         <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Nombre del producto</th>
+                        <th>Codigo de barras</th>
+                        <th>Cantidad</th>
+                        <th>Precio unitario</th>
+                        <th>Sucursal</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% if (data) { %>
+                        <% for(var i = 0; i < data.length; i++) { %>
+                          <tr>
+                            <td><%= (i + 1) %></td>
+                            <td><%= data[i].nombre_producto %></td>
+                            <td><%= data[i].codigo_barras %></td>
+                            <td><%= data[i].cantidad %></td>
+                            <td><%= data[i].precio_unitario %></td>
+                            <td><%= data[i].sucursal %></td>
+                            <td>
+                              <a href="/update/<%= data[i].id %>" class="btn btn-info">Editar</a>
+                              <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Borrar</a>
+                            </td>
+                          </tr>
+                        <% } %>
+                      <% } %>
+                </tbody>
+            </table>
+         </div>
+       
+
+        
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add" method="POST">
+                        <div class ="form-group">
+                          <input type="text" name="nombre_producto" placeholder="Nombre" class="form-control">
+                         </div><br>
+    
+                         <div class ="form-group">
+                            <input type="text" name="codigo_barras" placeholder="Codigo de barras" class="form-control">
+                           </div> <br>
+    
+                           <div class ="form-group">
+                            <input type="text" name="cantidad" placeholder="Cantidad" class="form-control">
+                           </div><br>
+    
+                           <div class ="form-group">
+                            <input type="text" name="precio_unitario" placeholder="Precio unitario" class="form-control">
+                           </div><br>
+    
+                           <div class ="form-group">
+                            <input type="text" name="sucursal" placeholder="Sucursal" class="form-control">
+                           </div><br>
+                           <button type="submit" class="btn btn-primary"> Guardar producto</button>
+                </form>
+                </div>
+            </div>
+           
+            
+        </div>
+        
+  </div>  
+
+</div>
+
+<%- include ('partials/_footer') %>

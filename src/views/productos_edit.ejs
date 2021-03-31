@@ -1,0 +1,37 @@
+<%- include ('partials/_header') %>
+<div class="container mt-5">
+    <div class="row">
+       <div class="col-md-5">
+           <div class="card">
+               <div class="card-body">
+
+                <form action="/update/<%=data.id %>" method="POST">
+                    <div class ="form-group">
+                      <input type="text" name="nombre_producto" value="<%=data.nombre_producto %>"  class="form-control">
+                     </div><br>
+
+                     <div class ="form-group">
+                        <input type="text" name="codigo_barras" value="<%=data.codigo_barras %>"  class="form-control">
+                       </div> <br>
+
+                       <div class ="form-group">
+                        <input type="text" name="cantidad" value="<%=data. cantidad%>"  class="form-control">
+                       </div><br>
+
+                       <div class ="form-group">
+                        <input type="text" name="precio_unitario" value="<%=data.precio_unitario %>"  class="form-control">
+                       </div><br>
+
+                       <div class ="form-group">
+                        <input type="text" name="sucursal" value="<%=data.sucursal %>"  class="form-control">
+                       </div><br>
+                       <button type="submit" class="btn btn-primary"> Editar producto</button>
+                </form>
+
+           </div>
+       </div>
+    </div>
+
+</div>
+
+<%- include ('partials/_footer') %>
